@@ -1,0 +1,21 @@
+{
+    "name": "Unit",
+    "fields": [
+        {
+            "fieldName": "unitType",
+            "fieldType": "UnitType",
+            "fieldValues": "TECHNICAL,OPERATION,SUPPORT"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191206210317",
+    "entityTableName": "unit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

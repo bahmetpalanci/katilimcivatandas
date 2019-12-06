@@ -1,0 +1,41 @@
+{
+    "name": "WorkOrder",
+    "fields": [
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sameCounty",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "unitType",
+            "fieldType": "UnitType",
+            "fieldValues": "TECHNICAL,OPERATION,SUPPORT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "notification",
+            "otherEntityRelationshipName": "workOrder",
+            "relationshipName": "notification",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191206210316",
+    "entityTableName": "work_order",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,11 @@
+id;create_date;active;same_county;unit_type
+1;2019-12-07;true;true;OPERATION
+2;2019-12-06;false;false;OPERATION
+3;2019-12-06;false;true;TECHNICAL
+4;2019-12-07;true;true;OPERATION
+5;2019-12-07;true;true;TECHNICAL
+6;2019-12-06;true;false;TECHNICAL
+7;2019-12-06;false;true;OPERATION
+8;2019-12-06;false;true;TECHNICAL
+9;2019-12-06;true;true;TECHNICAL
+10;2019-12-07;true;false;SUPPORT
