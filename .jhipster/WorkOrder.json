@@ -6,6 +6,10 @@
             "fieldType": "LocalDate"
         },
         {
+            "fieldName": "finishDate",
+            "fieldType": "LocalDate"
+        },
+        {
             "fieldName": "active",
             "fieldType": "Boolean"
         },
@@ -25,7 +29,8 @@
             "otherEntityName": "notification",
             "otherEntityRelationshipName": "workOrder",
             "relationshipName": "notification",
-            "ownerSide": false
+            "otherEntityField": "id",
+            "ownerSide": true
         }
     ],
     "changelogDate": "20191206210316",

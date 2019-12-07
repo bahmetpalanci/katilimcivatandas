@@ -25,12 +25,6 @@ public interface WorkOrderService {
      * @return the list of entities.
      */
     List<WorkOrder> findAll();
-    /**
-     * Get all the WorkOrderDTO where Notification is {@code null}.
-     *
-     * @return the list of entities.
-     */
-    List<WorkOrder> findAllWhereNotificationIsNull();
 
 
     /**

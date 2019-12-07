@@ -19,6 +19,9 @@
             <column name="create_date" type="date">
                 <constraints nullable="true" />
             </column>
+            <column name="finish_date" type="date">
+                <constraints nullable="true" />
+            </column>
             <column name="active" type="boolean">
                 <constraints nullable="true" />
             </column>
@@ -27,6 +30,9 @@
             </column>
             <column name="unit_type" type="varchar(255)">
                 <constraints nullable="true" />
+            </column>
+            <column name="notification_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_work_order_notification_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
@@ -52,6 +58,7 @@
                   tableName="work_order">
             <column name="id" type="numeric"/>
             <column name="create_date" type="date"/>
+            <column name="finish_date" type="date"/>
             <column name="active" type="boolean"/>
             <column name="same_county" type="boolean"/>
             <column name="unit_type" type="string"/>

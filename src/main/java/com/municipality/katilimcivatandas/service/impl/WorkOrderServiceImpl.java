@@ -5,6 +5,7 @@ import com.municipality.katilimcivatandas.service.WorkOrderService;
 import com.municipality.katilimcivatandas.domain.WorkOrder;
 import com.municipality.katilimcivatandas.repository.WorkOrderRepository;
 import com.municipality.katilimcivatandas.service.util.SmartChooser;
+import jdk.vm.ci.meta.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,10 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link WorkOrder}.
@@ -60,20 +60,6 @@ public class WorkOrderServiceImpl implements WorkOrderService {
 
 
     /**
-     * Get all the workOrders where Notification is {@code null}.
-     *
-     * @return the list of entities.
-     */
-    @Transactional(readOnly = true)
-    public List<WorkOrder> findAllWhereNotificationIsNull() {
-        log.debug("Request to get all workOrders where Notification is null");
-        return StreamSupport
-            .stream(workOrderRepository.findAll().spliterator(), false)
-            .filter(workOrder -> workOrder.getNotification() == null)
-            .collect(Collectors.toList());
-    }
-
-    /**
      * Get one workOrder by id.
      *
      * @param id the id of the entity.
@@ -105,8 +91,8 @@ public class WorkOrderServiceImpl implements WorkOrderService {
             if (workOrder.getNotification() != null) {
                 workOrder.setActive(false);
                 workOrder.getNotification().setDone(true);
+                workOrder.setFinishDate(LocalDate.now());
                 log.debug("{} user's notification is done", workOrder.getNotification()
-                    .getUser()
                     .getUser()
                     .getLogin());
             }

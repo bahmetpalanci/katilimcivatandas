@@ -17,7 +17,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link com.municipality.katilimcivatandas.domain.WorkOrder}.
@@ -83,15 +82,10 @@ public class WorkOrderResource {
      * {@code GET  /work-orders} : get all the workOrders.
      *
 
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of workOrders in body.
      */
     @GetMapping("/work-orders")
-    public List<WorkOrder> getAllWorkOrders(@RequestParam(required = false) String filter) {
-        if ("notification-is-null".equals(filter)) {
-            log.debug("REST request to get all WorkOrders where notification is null");
-            return workOrderService.findAllWhereNotificationIsNull();
-        }
+    public List<WorkOrder> getAllWorkOrders() {
         log.debug("REST request to get all WorkOrders");
         return workOrderService.findAll();
     }

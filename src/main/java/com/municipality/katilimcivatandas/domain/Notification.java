@@ -44,13 +44,9 @@ public class Notification implements Serializable {
     @Column(name = "done")
     private Boolean done;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private WorkOrder workOrder;
-
     @ManyToOne
     @JsonIgnoreProperties("notifications")
-    private UserInfo user;
+    private User user;
 
     public boolean isSameCounty() {
         return StringUtils.equals(county, user.getCounty());
@@ -156,30 +152,17 @@ public class Notification implements Serializable {
         this.done = done;
     }
 
-    public WorkOrder getWorkOrder() {
-        return workOrder;
-    }
-
-    public Notification workOrder(WorkOrder workOrder) {
-        this.workOrder = workOrder;
-        return this;
-    }
-
-    public void setWorkOrder(WorkOrder workOrder) {
-        this.workOrder = workOrder;
-    }
-
-    public UserInfo getUser() {
+    public User getUser() {
         return user;
     }
 
-    public Notification user(UserInfo userInfo) {
-        this.user = userInfo;
+    public Notification user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setUser(UserInfo userInfo) {
-        this.user = userInfo;
+    public void setUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

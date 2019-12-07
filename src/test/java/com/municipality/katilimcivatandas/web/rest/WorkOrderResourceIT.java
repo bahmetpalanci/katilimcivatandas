@@ -40,6 +40,9 @@ public class WorkOrderResourceIT {
     private static final LocalDate DEFAULT_CREATE_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CREATE_DATE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final LocalDate DEFAULT_FINISH_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_FINISH_DATE = LocalDate.now(ZoneId.systemDefault());
+
     private static final Boolean DEFAULT_ACTIVE = false;
     private static final Boolean UPDATED_ACTIVE = true;
 
@@ -95,6 +98,7 @@ public class WorkOrderResourceIT {
     public static WorkOrder createEntity(EntityManager em) {
         WorkOrder workOrder = new WorkOrder()
             .createDate(DEFAULT_CREATE_DATE)
+            .finishDate(DEFAULT_FINISH_DATE)
             .active(DEFAULT_ACTIVE)
             .sameCounty(DEFAULT_SAME_COUNTY)
             .unitType(DEFAULT_UNIT_TYPE);
@@ -109,6 +113,7 @@ public class WorkOrderResourceIT {
     public static WorkOrder createUpdatedEntity(EntityManager em) {
         WorkOrder workOrder = new WorkOrder()
             .createDate(UPDATED_CREATE_DATE)
+            .finishDate(UPDATED_FINISH_DATE)
             .active(UPDATED_ACTIVE)
             .sameCounty(UPDATED_SAME_COUNTY)
             .unitType(UPDATED_UNIT_TYPE);
@@ -136,6 +141,7 @@ public class WorkOrderResourceIT {
         assertThat(workOrderList).hasSize(databaseSizeBeforeCreate + 1);
         WorkOrder testWorkOrder = workOrderList.get(workOrderList.size() - 1);
         assertThat(testWorkOrder.getCreateDate()).isEqualTo(DEFAULT_CREATE_DATE);
+        assertThat(testWorkOrder.getFinishDate()).isEqualTo(DEFAULT_FINISH_DATE);
         assertThat(testWorkOrder.isActive()).isEqualTo(DEFAULT_ACTIVE);
         assertThat(testWorkOrder.isSameCounty()).isEqualTo(DEFAULT_SAME_COUNTY);
         assertThat(testWorkOrder.getUnitType()).isEqualTo(DEFAULT_UNIT_TYPE);
@@ -173,6 +179,7 @@ public class WorkOrderResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(workOrder.getId().intValue())))
             .andExpect(jsonPath("$.[*].createDate").value(hasItem(DEFAULT_CREATE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].finishDate").value(hasItem(DEFAULT_FINISH_DATE.toString())))
             .andExpect(jsonPath("$.[*].active").value(hasItem(DEFAULT_ACTIVE.booleanValue())))
             .andExpect(jsonPath("$.[*].sameCounty").value(hasItem(DEFAULT_SAME_COUNTY.booleanValue())))
             .andExpect(jsonPath("$.[*].unitType").value(hasItem(DEFAULT_UNIT_TYPE.toString())));
@@ -190,6 +197,7 @@ public class WorkOrderResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(workOrder.getId().intValue()))
             .andExpect(jsonPath("$.createDate").value(DEFAULT_CREATE_DATE.toString()))
+            .andExpect(jsonPath("$.finishDate").value(DEFAULT_FINISH_DATE.toString()))
             .andExpect(jsonPath("$.active").value(DEFAULT_ACTIVE.booleanValue()))
             .andExpect(jsonPath("$.sameCounty").value(DEFAULT_SAME_COUNTY.booleanValue()))
             .andExpect(jsonPath("$.unitType").value(DEFAULT_UNIT_TYPE.toString()));
@@ -217,6 +225,7 @@ public class WorkOrderResourceIT {
         em.detach(updatedWorkOrder);
         updatedWorkOrder
             .createDate(UPDATED_CREATE_DATE)
+            .finishDate(UPDATED_FINISH_DATE)
             .active(UPDATED_ACTIVE)
             .sameCounty(UPDATED_SAME_COUNTY)
             .unitType(UPDATED_UNIT_TYPE);
@@ -231,6 +240,7 @@ public class WorkOrderResourceIT {
         assertThat(workOrderList).hasSize(databaseSizeBeforeUpdate);
         WorkOrder testWorkOrder = workOrderList.get(workOrderList.size() - 1);
         assertThat(testWorkOrder.getCreateDate()).isEqualTo(UPDATED_CREATE_DATE);
+        assertThat(testWorkOrder.getFinishDate()).isEqualTo(UPDATED_FINISH_DATE);
         assertThat(testWorkOrder.isActive()).isEqualTo(UPDATED_ACTIVE);
         assertThat(testWorkOrder.isSameCounty()).isEqualTo(UPDATED_SAME_COUNTY);
         assertThat(testWorkOrder.getUnitType()).isEqualTo(UPDATED_UNIT_TYPE);

@@ -73,13 +73,13 @@ public class NotificationResourceIT {
     private ExceptionTranslator exceptionTranslator;
 
     @Autowired
-    private WorkOrderService workOrderService;
-
-    @Autowired
     private EntityManager em;
 
     @Autowired
     private Validator validator;
+
+    @Autowired
+    private WorkOrderService workOrderService;
 
     private MockMvc restNotificationMockMvc;
 

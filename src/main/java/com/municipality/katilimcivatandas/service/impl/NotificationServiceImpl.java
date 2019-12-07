@@ -37,7 +37,6 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public Notification save(Notification notification) {
         log.debug("Request to save Notification : {}", notification);
-        notification.setDone(false);
         return notificationRepository.save(notification);
     }
 

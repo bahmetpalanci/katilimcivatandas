@@ -1,5 +1,4 @@
 package com.municipality.katilimcivatandas.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -24,6 +23,9 @@ public class WorkOrder implements Serializable {
     @Column(name = "create_date")
     private LocalDate createDate;
 
+    @Column(name = "finish_date")
+    private LocalDate finishDate;
+
     @Column(name = "active")
     private Boolean active;
 
@@ -34,8 +36,8 @@ public class WorkOrder implements Serializable {
     @Column(name = "unit_type")
     private UnitType unitType;
 
-    @OneToOne(mappedBy = "workOrder")
-    @JsonIgnore
+    @OneToOne
+    @JoinColumn(unique = true)
     private Notification notification;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -58,6 +60,19 @@ public class WorkOrder implements Serializable {
 
     public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
+    }
+
+    public LocalDate getFinishDate() {
+        return finishDate;
+    }
+
+    public WorkOrder finishDate(LocalDate finishDate) {
+        this.finishDate = finishDate;
+        return this;
+    }
+
+    public void setFinishDate(LocalDate finishDate) {
+        this.finishDate = finishDate;
     }
 
     public Boolean isActive() {
@@ -134,6 +149,7 @@ public class WorkOrder implements Serializable {
         return "WorkOrder{" +
             "id=" + getId() +
             ", createDate='" + getCreateDate() + "'" +
+            ", finishDate='" + getFinishDate() + "'" +
             ", active='" + isActive() + "'" +
             ", sameCounty='" + isSameCounty() + "'" +
             ", unitType='" + getUnitType() + "'" +

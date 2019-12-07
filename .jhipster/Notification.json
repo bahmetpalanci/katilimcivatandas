@@ -30,16 +30,8 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "workOrder",
-            "otherEntityRelationshipName": "notification",
-            "relationshipName": "workOrder",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
-        {
             "relationshipType": "many-to-one",
-            "otherEntityName": "userInfo",
+            "otherEntityName": "user",
             "otherEntityRelationshipName": "notification",
             "relationshipName": "user",
             "otherEntityField": "id"

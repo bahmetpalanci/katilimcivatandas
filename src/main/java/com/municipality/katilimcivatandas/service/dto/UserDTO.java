@@ -49,6 +49,12 @@ public class UserDTO {
 
     private String lastModifiedBy;
 
+    private String address;
+
+    private String city;
+
+    private String county;
+
     private Instant lastModifiedDate;
 
     private Set<String> authorities;
@@ -70,9 +76,36 @@ public class UserDTO {
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
+        this.address = user.getAddress();
+        this.county = user.getCounty();
+        this.city = user.getCity();
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
     }
 
     public Long getId() {

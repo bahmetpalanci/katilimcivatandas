@@ -1,7 +1,9 @@
 package com.municipality.katilimcivatandas.web.rest;
 
 import com.municipality.katilimcivatandas.domain.Notification;
+import com.municipality.katilimcivatandas.security.SecurityUtils;
 import com.municipality.katilimcivatandas.service.NotificationService;
+import com.municipality.katilimcivatandas.service.UserService;
 import com.municipality.katilimcivatandas.service.WorkOrderService;
 import com.municipality.katilimcivatandas.web.rest.errors.BadRequestAlertException;
 
@@ -41,10 +43,12 @@ public class NotificationResource {
 
     private final NotificationService notificationService;
     private final WorkOrderService workOrderService;
+    private final UserService userService;
 
-    public NotificationResource(NotificationService notificationService, WorkOrderService workOrderService) {
+    public NotificationResource(NotificationService notificationService, WorkOrderService workOrderService, UserService userService) {
         this.notificationService = notificationService;
         this.workOrderService = workOrderService;
+        this.userService = userService;
     }
 
     /**
@@ -60,6 +64,8 @@ public class NotificationResource {
         if (notification.getId() != null) {
             throw new BadRequestAlertException("A new notification cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        Optional<String> userLogin = SecurityUtils.getCurrentUserLogin();
+        notification.setUser(userService.getUserWithAuthoritiesByLogin(userLogin.orElse("")).orElse(null));
         Notification result = notificationService.save(notification);
         workOrderService.createWorkOrderFromNotification(result);
         return ResponseEntity.created(new URI("/api/notifications/" + result.getId()))

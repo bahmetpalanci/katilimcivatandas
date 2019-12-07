@@ -37,9 +37,6 @@
             <column name="done" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="work_order_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_notification_work_order_id" />
-            </column>
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
