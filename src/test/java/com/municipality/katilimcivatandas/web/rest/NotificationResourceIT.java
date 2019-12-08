@@ -4,6 +4,7 @@ import com.municipality.katilimcivatandas.KatilimcivatandasApp;
 import com.municipality.katilimcivatandas.domain.Notification;
 import com.municipality.katilimcivatandas.repository.NotificationRepository;
 import com.municipality.katilimcivatandas.service.NotificationService;
+import com.municipality.katilimcivatandas.service.UserService;
 import com.municipality.katilimcivatandas.service.WorkOrderService;
 import com.municipality.katilimcivatandas.web.rest.errors.ExceptionTranslator;
 
@@ -81,6 +82,9 @@ public class NotificationResourceIT {
     @Autowired
     private WorkOrderService workOrderService;
 
+    @Autowired
+    private UserService userService;
+
     private MockMvc restNotificationMockMvc;
 
     private Notification notification;
@@ -88,7 +92,7 @@ public class NotificationResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final NotificationResource notificationResource = new NotificationResource(notificationService, workOrderService);
+        final NotificationResource notificationResource = new NotificationResource(notificationService, workOrderService, userService);
         this.restNotificationMockMvc = MockMvcBuilders.standaloneSetup(notificationResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
