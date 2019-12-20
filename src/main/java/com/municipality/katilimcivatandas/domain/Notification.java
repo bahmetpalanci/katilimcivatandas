@@ -37,6 +37,9 @@ public class Notification implements Serializable {
     @Column(name = "message")
     private String message;
 
+    @Column(name = "subject")
+    private String subject;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
     private NotificationCategory category;
@@ -164,6 +167,15 @@ public class Notification implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

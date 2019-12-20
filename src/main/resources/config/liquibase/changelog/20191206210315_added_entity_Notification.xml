@@ -31,6 +31,9 @@
             <column name="message" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="subject" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="category" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

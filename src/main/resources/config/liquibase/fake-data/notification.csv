@@ -1,11 +1,11 @@
-id;county;city;image;image_content_type;message;category;done
-1;Georgia Industrial;Ryanview;../fake-data/blob/hipster.png;image/png;e-enable Communications capacitor;BREAKDOWN;true
-2;Tactics;Howellmouth;../fake-data/blob/hipster.png;image/png;South Georgia and the South Sandwich Islands;REQUEST;false
-3;scalable;North Aftonshire;../fake-data/blob/hipster.png;image/png;index orange;BREAKDOWN;true
-4;application quantify Unbranded Plastic Tuna;Port Sallyhaven;../fake-data/blob/hipster.png;image/png;Highway Ergonomic;COMPLAINT;true
-5;tangible Mississippi;North Walton;../fake-data/blob/hipster.png;image/png;synthesizing hard drive Robust;REQUEST;true
-6;Small partnerships;North Sonnyfurt;../fake-data/blob/hipster.png;image/png;knowledge base Buckinghamshire;BREAKDOWN;false
-7;Generic neutral Salad;Muellerfort;../fake-data/blob/hipster.png;image/png;deposit;COMPLAINT;true
-8;back-end;Hermannborough;../fake-data/blob/hipster.png;image/png;Gorgeous Profit-focused synergies;REQUEST;false
-9;magenta Concrete;East Twila;../fake-data/blob/hipster.png;image/png;conglomeration;BREAKDOWN;true
-10;Functionality;New Jerry;../fake-data/blob/hipster.png;image/png;capability zero tolerance Computers;BREAKDOWN;false
+id;county;city;image;image_content_type;message;subject;category;done
+1;Georgia Industrial;Ryanview;../fake-data/blob/hipster.png;image/png;e-enable Communications capacitor;subject1;BREAKDOWN;true
+2;Tactics;Howellmouth;../fake-data/blob/hipster.png;image/png;South Georgia and the South Sandwich Islands;subject12;REQUEST;false
+3;scalable;North Aftonshire;../fake-data/blob/hipster.png;image/png;index orange;subject13;BREAKDOWN;true
+4;application quantify Unbranded Plastic Tuna;Port Sallyhaven;../fake-data/blob/hipster.png;image/png;Highway Ergonomic;subject14;COMPLAINT;true
+5;tangible Mississippi;North Walton;../fake-data/blob/hipster.png;image/png;synthesizing hard drive Robust;subject15;REQUEST;true
+6;Small partnerships;North Sonnyfurt;../fake-data/blob/hipster.png;image/png;knowledge base Buckinghamshire;subject16;BREAKDOWN;false
+7;Generic neutral Salad;Muellerfort;../fake-data/blob/hipster.png;image/png;deposit;subject17;COMPLAINT;true
+8;back-end;Hermannborough;../fake-data/blob/hipster.png;image/png;Gorgeous Profit-focused synergies;subject18;REQUEST;false
+9;magenta Concrete;East Twila;../fake-data/blob/hipster.png;image/png;conglomeration;subject19;BREAKDOWN;true
+10;Functionality;New Jerry;../fake-data/blob/hipster.png;image/png;capability zero tolerance Computers;subject10;BREAKDOWN;false
