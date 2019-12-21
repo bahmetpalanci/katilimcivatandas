@@ -36,7 +36,7 @@ public class WorkOrder implements Serializable {
     @Column(name = "unit_type")
     private UnitType unitType;
 
-    @OneToOne
+    @OneToOne(cascade= CascadeType.ALL)
     @JoinColumn(unique = true)
     private Notification notification;
 
